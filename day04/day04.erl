@@ -64,10 +64,7 @@ generate_checksum(Map) ->
     [Char || {Char, _} <- Sorted].
 
 sort_fun({CharA, OccurrencesA}, {CharB, OccurrencesB}) ->
-    case OccurrencesA =:= OccurrencesB of
-        true -> CharA < CharB;
-        false -> OccurrencesA > OccurrencesB
-    end.
+    {OccurrencesB, CharB} > {OccurrencesA, CharA}.
 
 decrypt_room(Line) ->
     SplitLine = re:split(Line, "([0-9]+)|[\\[\\]]", [{return, list}, trim]),

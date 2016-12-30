@@ -74,4 +74,3 @@ exec({dec, _, {register, _, Reg}},
     NewRegisters = maps:put(Reg, Val - 1, Registers),
     eval(State#state{line = Line + 1,
                      registers = NewRegisters}).
-
